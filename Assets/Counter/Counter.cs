@@ -7,17 +7,19 @@ using UnityEngine.UI;
 public class Counter : MonoBehaviour
 {
     public Text CounterText;
-
-    private int Count = 0;
+    public int scoreValue = 0;
+    public int Count = 0;
     //whatever
     private void Start()
     {
         Count = 0;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void OnTriggerEnter(Collider other)
     {
         Count += 1;
-        CounterText.text = "Count : " + Count;
+        Count = scoreValue;
+        CounterText.text = "Count : " + scoreValue;
     }
+    
 }
