@@ -7,8 +7,8 @@ using UnityEngine.UI;
 public class Counter : MonoBehaviour
 {
     public Text CounterText;
-    public int scoreValue = 0;
-    public int Count = 0;
+    public static int Count = 0;
+    public int scoreMultiplier;
     //whatever
     private void Start()
     {
@@ -17,9 +17,10 @@ public class Counter : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        Count += 1;
-        Count = scoreValue;
-        CounterText.text = "Count : " + scoreValue;
+        Count += 1 * scoreMultiplier;
+
+        CounterText.text = "Count : " + Count;
+        Destroy(other.gameObject);
     }
     
 }
